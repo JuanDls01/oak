@@ -1,4 +1,6 @@
 font-family = SF Mono
+# Fallback for Nerd Font glyphs (LazyVim icons)
+font-family = Symbols Nerd Font Mono
 font-size = 14
 cursor-style = block
 window-padding-x = 10

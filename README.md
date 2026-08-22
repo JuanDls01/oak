@@ -31,7 +31,7 @@ The script is interactive at a couple of points (the Xcode Command Line Tools GU
 ./install.sh --skip=vscode,orca  # run everything except these
 ```
 
-Steps: `clt` (Xcode Command Line Tools — mandatory for `brew`/`git` to work at all; this is the small CLT package, **not** the full Xcode.app — grab that separately from the App Store later if you get into iOS dev), `brew`, `omz` (Oh My Zsh), `symlinks`, `gitdirs`, `ssh`, `github` (auth + push this repo), `mise`, `vscode` (extensions), `orca` (opens the manual download page).
+Steps: `clt` (Xcode Command Line Tools — mandatory for `brew`/`git` to work at all; this is the small CLT package, **not** the full Xcode.app — grab that separately from the App Store later if you get into iOS dev), `brew`, `omz` (Oh My Zsh), `symlinks`, `gitdirs`, `ssh`, `github` (auth + push this repo), `mise`, `nvim` (bootstraps LazyVim plugins headlessly), `vscode` (extensions), `orca` (opens the manual download page).
 
 ## Starter Kit (what gets installed)
 
@@ -39,15 +39,16 @@ Steps: `clt` (Xcode Command Line Tools — mandatory for `brew`/`git` to work at
 |---|---|
 | Shell | Ghostty + Oh My Zsh (`robbyrussell` theme), zsh-autosuggestions, zsh-syntax-highlighting |
 | Editor | VS Code (settings + curated extensions synced), Orca IDE (manual — no Homebrew cask) |
-| Neovim | LazyVim-based config, vendored under `nvim/` |
+| Neovim | Neovim + LazyVim-based config, vendored under `nvim/`; plugins bootstrapped on install |
 | Runtimes | [mise](https://mise.jdx.dev) — per-project Node/Python/etc. version switching |
 | Git | Directory-based identity split: `~/code/personal` vs `~/code/work` |
 | Claude Code | Hooks + statusline, see below |
 
 ## Pokédex (Brewfile contents)
 
-CLI: `git`, `gh`, `mise`, `jq`, `ripgrep`, `fzf`, `wget`, `tree`
+CLI: `git`, `gh`, `mise`, `neovim`, `lazygit`, `jq`, `ripgrep`, `fzf`, `wget`, `tree`
 GUI: Chrome, Slack, Raycast, Rectangle
+Fonts: `font-symbols-only-nerd-font` (glyph fallback so LazyVim icons render in Ghostty)
 
 Deliberately curated, not exhaustive — add more to `Brewfile` as you actually need them.
 
@@ -61,6 +62,7 @@ Deliberately curated, not exhaustive — add more to `Brewfile` as you actually 
 - [ ] SSH key generated and added to GitHub
 - [ ] `gh auth login` + this repo pushed
 - [ ] mise global Node/Python defaults
+- [ ] Neovim installed + LazyVim plugins bootstrapped
 - [ ] VS Code extensions installed
 - [ ] Orca IDE installed manually
 
@@ -79,6 +81,10 @@ Any repo cloned under `~/code/personal/` uses your personal email; anything unde
 ## Neovim
 
 `nvim/` is a LazyVim-based config, vendored directly into this repo (not a submodule) — symlinked to `~/.config/nvim` by `install.sh`.
+
+The `nvim` step runs `nvim --headless "+Lazy! sync" +qa` so the first real `nvim` launch is instant instead of downloading plugins. Icons come from the Nerd Font glyph fallback in `ghostty/config` — Ghostty keeps SF Mono for text and falls back to `Symbols Nerd Font Mono` for the LazyVim icons.
+
+Re-run just this part with `./install.sh --only=nvim`.
 
 ## Adding a new machine later
 

@@ -22,7 +22,7 @@ if [[ "$(uname)" != "Darwin" ]]; then
 fi
 
 # ── Step selection ────────────────────────────────────────────────────────
-ALL_STEPS=(clt brew omz symlinks gitdirs ssh github mise vscode orca)
+ALL_STEPS=(clt brew omz symlinks gitdirs ssh github mise nvim vscode orca)
 ONLY=""
 SKIP=""
 
@@ -190,6 +190,15 @@ step_mise() {
   log "Setting mise global defaults (Node LTS, latest Python)"
   eval "$(mise activate bash)"
   mise use --global node@lts python@latest
+}
+
+step_nvim() {
+  if command -v nvim >/dev/null 2>&1; then
+    log "Bootstrapping LazyVim plugins"
+    nvim --headless "+Lazy! sync" +qa
+  else
+    warn "nvim not found on PATH — run './install.sh --only=brew' first, then: ./install.sh --only=nvim"
+  fi
 }
 
 step_vscode() {
