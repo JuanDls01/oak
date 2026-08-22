@@ -1,0 +1,11 @@
+{
+  "editor.fontSize": 13,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.rulers": [100],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "terminal.integrated.fontSize": 13,
+  "git.autofetch": true
+}

@@ -1,0 +1,15 @@
+[user]
+	name = Juan Dls
+	email = juanignaciodelossantos01@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[color]
+	ui = auto
+[core]
+	editor = code --wait
+[includeIf "gitdir:~/code/personal/"]
+	path = ~/.gitconfig-personal
+[includeIf "gitdir:~/code/work/"]
+	path = ~/.gitconfig-work

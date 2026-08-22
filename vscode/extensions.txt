@@ -1,0 +1,7 @@
+esbenp.prettier-vscode
+dbaeumer.vscode-eslint
+editorconfig.editorconfig
+eamodio.gitlens
+christian-kohler.path-intellisense
+redhat.vscode-yaml
+mikestead.dotenv
