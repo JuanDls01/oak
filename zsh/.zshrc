@@ -26,3 +26,6 @@ alias gp="git push"
 # zsh-syntax-highlighting must be sourced last
 [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PATH="$HOME/.local/bin:$PATH"
+
