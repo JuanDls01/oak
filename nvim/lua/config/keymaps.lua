@@ -17,3 +17,8 @@ vim.keymap.set("i", "<D-S-z>", "<C-o><C-r>", { desc = "Redo" })
 vim.keymap.set("n", "<D-/>", "gcc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("v", "<D-/>", "gc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("i", "<D-/>", "<Cmd>normal gcc<CR>", { desc = "Toggle comment" })
+
+-- Buscar archivo por nombre con Cmd+P, como el Quick Open de VS Code.
+-- Reusa <leader><space> de LazyVim, así respeta la detección de root dir.
+vim.keymap.set({ "n", "v" }, "<D-p>", "<leader><space>", { remap = true, desc = "Find Files" })
+vim.keymap.set("i", "<D-p>", "<Esc><leader><space>", { remap = true, desc = "Find Files" })

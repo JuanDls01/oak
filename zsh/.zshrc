@@ -1,11 +1,19 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+# Prompt propio (definido más abajo), no un tema de oh-my-zsh.
+ZSH_THEME=""
 plugins=(git macos fzf)
 source "$ZSH/oh-my-zsh.sh"
 
 # Homebrew
 if [[ -d /opt/homebrew/bin ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# ── Prompt ──────────────────────────────────────────────────
+# Starship (config: ~/.config/starship.toml) — estilo Pure: dos
+# líneas, ruta en azul, rama de git en verde, estado en amarillo.
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
 fi
 
 # mise - per-project Node/Python/etc versions

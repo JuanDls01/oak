@@ -18,8 +18,9 @@ cask "slack"
 cask "raycast"
 cask "rectangle"
 
-# Fonts (glyph fallback so LazyVim icons render in Ghostty)
-cask "font-symbols-only-nerd-font"
+# Fonts
+cask "font-geist-mono-nerd-font"      # fuente principal de la terminal
+cask "font-symbols-only-nerd-font"    # fallback de glifos
 
 # Note: Orca IDE (https://www.onorca.dev) has no Homebrew cask.
 # install.sh opens its download page as a manual step.

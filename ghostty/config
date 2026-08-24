@@ -1,9 +1,47 @@
-font-family = SF Mono
-# Fallback for Nerd Font glyphs (LazyVim icons)
+# ── Tipografía ──────────────────────────────────────────────
+font-family = GeistMono Nerd Font Mono
+# Fallback por si algún glifo no está cubierto
 font-family = Symbols Nerd Font Mono
 font-size = 14
+
+# ── Tema ────────────────────────────────────────────────────
+# Paleta ANSI oficial de tokyonight-night (extras/ghostty del propio
+# plugin), con el fondo llevado a negro puro para que la terminal y
+# Neovim sean el mismo color. El chrome va en grises; el color queda
+# reservado para el texto.
+background = #000000
+foreground = #c0caf5
+cursor-color = #c0caf5
+selection-background = #283457
+selection-foreground = #c0caf5
+
+palette = 0=#15161e
+palette = 1=#f7768e
+palette = 2=#9ece6a
+palette = 3=#e0af68
+palette = 4=#7aa2f7
+palette = 5=#bb9af7
+palette = 6=#7dcfff
+palette = 7=#a9b1d6
+palette = 8=#414868
+palette = 9=#ff899d
+palette = 10=#9fe044
+palette = 11=#faba4a
+palette = 12=#8db0ff
+palette = 13=#c7a9ff
+palette = 14=#a4daff
+palette = 15=#c0caf5
+
+# ── Ventana ─────────────────────────────────────────────────
+# window-theme = ghostty hace que la barra de título y las pestañas
+# tomen el fondo de la config en vez del tema del sistema.
+window-theme = ghostty
+window-titlebar-background = #000000
+window-titlebar-foreground = #a1a1a1
+macos-titlebar-style = transparent
+window-padding-x = 12
+window-padding-y = 12
+
 cursor-style = block
-window-padding-x = 10
-window-padding-y = 10
 confirm-close-surface = false
 macos-option-as-alt = true

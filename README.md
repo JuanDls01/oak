@@ -37,7 +37,7 @@ Steps: `clt` (Xcode Command Line Tools — mandatory for `brew`/`git` to work at
 
 | 🎒 Item | Details |
 |---|---|
-| Shell | Ghostty + Oh My Zsh (`robbyrussell` theme), zsh-autosuggestions, zsh-syntax-highlighting |
+| Shell | Ghostty (negro puro, Geist Mono, paleta tokyonight) + Oh My Zsh (`robbyrussell` theme), zsh-autosuggestions, zsh-syntax-highlighting |
 | Editor | VS Code (settings + curated extensions synced), Orca IDE (manual — no Homebrew cask) |
 | Neovim | Neovim + LazyVim-based config, vendored under `nvim/`; plugins bootstrapped on install |
 | Runtimes | [mise](https://mise.jdx.dev) — per-project Node/Python/etc. version switching |
@@ -48,7 +48,7 @@ Steps: `clt` (Xcode Command Line Tools — mandatory for `brew`/`git` to work at
 
 CLI: `git`, `gh`, `mise`, `neovim`, `lazygit`, `jq`, `ripgrep`, `fzf`, `wget`, `tree`
 GUI: Chrome, Slack, Raycast, Rectangle
-Fonts: `font-symbols-only-nerd-font` (glyph fallback so LazyVim icons render in Ghostty)
+Fonts: `font-geist-mono-nerd-font` (terminal), `font-symbols-only-nerd-font` (glyph fallback)
 
 Deliberately curated, not exhaustive — add more to `Brewfile` as you actually need them.
 
@@ -82,7 +82,16 @@ Any repo cloned under `~/code/personal/` uses your personal email; anything unde
 
 `nvim/` is a LazyVim-based config, vendored directly into this repo (not a submodule) — symlinked to `~/.config/nvim` by `install.sh`.
 
-The `nvim` step runs `nvim --headless "+Lazy! sync" +qa` so the first real `nvim` launch is instant instead of downloading plugins. Icons come from the Nerd Font glyph fallback in `ghostty/config` — Ghostty keeps SF Mono for text and falls back to `Symbols Nerd Font Mono` for the LazyVim icons.
+The `nvim` step runs `nvim --headless "+Lazy! sync" +qa` so the first real `nvim` launch is instant instead of downloading plugins.
+
+### Theming
+
+`nvim/lua/plugins/colorscheme.lua` splits the theme in two on purpose:
+
+- **Chrome** — borders, gutter, statusline, tabs, dashboard, pickers — is forced to a black/white/grey scale via `on_highlights`.
+- **Code** — syntax, and diagnostics — keeps tokyonight's palette untouched.
+
+The background is pure `#000000` so Neovim and the terminal are the same colour. `ghostty/config` mirrors it: tokyonight's official ANSI palette (shipped in the plugin's own `extras/ghostty/`) with the background overridden to black, and `window-theme = ghostty` so the titlebar follows suit.
 
 Re-run just this part with `./install.sh --only=nvim`.
 
