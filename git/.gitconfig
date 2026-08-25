@@ -9,7 +9,9 @@
 	ui = auto
 [core]
 	editor = code --wait
-[includeIf "gitdir:~/code/personal/"]
+[includeIf "gitdir:~/code/side-projects/"]
 	path = ~/.gitconfig-personal
-[includeIf "gitdir:~/code/work/"]
-	path = ~/.gitconfig-work
+[includeIf "gitdir:~/code/freelance/"]
+	path = ~/.gitconfig-personal
+[includeIf "gitdir:~/code/geoactio/"]
+	path = ~/.gitconfig-geoactio

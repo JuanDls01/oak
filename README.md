@@ -41,7 +41,7 @@ Steps: `clt` (Xcode Command Line Tools — mandatory for `brew`/`git` to work at
 | Editor | VS Code (settings + curated extensions synced), Orca IDE (manual — no Homebrew cask) |
 | Neovim | Neovim + LazyVim-based config, vendored under `nvim/`; plugins bootstrapped on install |
 | Runtimes | [mise](https://mise.jdx.dev) — per-project Node/Python/etc. version switching |
-| Git | Directory-based identity split: `~/code/personal` vs `~/code/work` |
+| Git | Directory-based identity split: `~/code/side-projects`, `~/code/freelance`, `~/code/{company}` (e.g. `geoactio`) |
 | Claude Code | Hooks + statusline, see below |
 
 ## Pokédex (Brewfile contents)
@@ -58,7 +58,7 @@ Deliberately curated, not exhaustive — add more to `Brewfile` as you actually 
 - [ ] Homebrew + `brew bundle`
 - [ ] Oh My Zsh
 - [ ] Dotfiles symlinked (`.zshrc`, `.gitconfig*`, Ghostty, VS Code, Claude, Neovim)
-- [ ] `~/code/personal` and `~/code/work` created
+- [ ] `~/code/side-projects`, `~/code/freelance`, and `~/code/geoactio` created
 - [ ] SSH key generated and added to GitHub
 - [ ] `gh auth login` + this repo pushed
 - [ ] mise global Node/Python defaults
@@ -70,7 +70,12 @@ Deliberately curated, not exhaustive — add more to `Brewfile` as you actually 
 
 ## Git identity split
 
-Any repo cloned under `~/code/personal/` uses your personal email; anything under `~/code/work/` uses your company email — set via `includeIf "gitdir:"` in `git/.gitconfig`. No manual `git config user.email` juggling between projects.
+Repos are grouped by context, not just personal-vs-work:
+
+- `~/code/side-projects/` and `~/code/freelance/` use your personal email (`~/.gitconfig-personal`)
+- `~/code/{company}/` (e.g. `~/code/geoactio/`) uses that company's email via its own `~/.gitconfig-{company}` file
+
+Each gets its own `includeIf "gitdir:"` block in `git/.gitconfig`, so no manual `git config user.email` juggling between projects. Starting at a new company: add `~/code/{company}/`, a `git/.gitconfig-{company}` file with that identity, symlink it in `step_symlinks` (`install.sh`), and an `includeIf` block pointing at it.
 
 ## Claude Code config
 

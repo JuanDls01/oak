@@ -128,7 +128,7 @@ step_symlinks() {
   link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
   link "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
   link "$DOTFILES_DIR/git/.gitconfig-personal" "$HOME/.gitconfig-personal"
-  link "$DOTFILES_DIR/git/.gitconfig-work" "$HOME/.gitconfig-work"
+  link "$DOTFILES_DIR/git/.gitconfig-geoactio" "$HOME/.gitconfig-geoactio"
   link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
   link "$DOTFILES_DIR/claude/hooks/block-coauthor.sh" "$HOME/.claude/hooks/block-coauthor.sh"
   link "$DOTFILES_DIR/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
@@ -141,8 +141,9 @@ step_symlinks() {
 }
 
 step_gitdirs() {
-  mkdir -p "$HOME/code/personal" "$HOME/code/work"
-  log "Created ~/code/personal and ~/code/work (personal vs. work git identity split)"
+  mkdir -p "$HOME/code/side-projects" "$HOME/code/freelance" "$HOME/code/geoactio"
+  log "Created ~/code/side-projects, ~/code/freelance, and ~/code/geoactio (per-context git identity split)"
+  log "Starting at a new company? Add ~/code/{company}/, its own ~/.gitconfig-{company}, and an includeIf block in git/.gitconfig"
 }
 
 step_ssh() {
