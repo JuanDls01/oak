@@ -19,6 +19,10 @@ return {
           dev = { "~/Code" },
           max_depth = 4,
         },
+        explorer = {
+          hidden = true,
+          ignored = true,
+        },
       },
     },
   },
