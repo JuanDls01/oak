@@ -36,4 +36,4 @@ alias gp="git push"
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH="$HOME/.local/bin:$PATH"
-
+export PATH="$PATH:$(go env GOPATH)/bin"
