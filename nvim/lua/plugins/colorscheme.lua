@@ -123,6 +123,11 @@ return {
         hl.SnacksPickerSpinner = { fg = mono.dim }
         hl.SnacksPickerIdx = { fg = mono.gutter }
 
+        -- Archivos/carpetas ignorados por git en el explorer: por defecto
+        -- heredan de NonText (mono.gutter), demasiado oscuro para leerse.
+        hl.SnacksPickerPathIgnored = { fg = mono.dim }
+        hl.SnacksPickerGitStatusIgnored = { fg = mono.dim }
+
         -- Iconos de archivo y carpeta: mini.icons colorea por tipo, así que
         -- toda su paleta se aplana a un único gris.
         for _, name in ipairs({
