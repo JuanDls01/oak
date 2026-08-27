@@ -136,6 +136,7 @@ step_symlinks() {
 
   local vscode_user_dir="$HOME/Library/Application Support/Code/User"
   link "$DOTFILES_DIR/vscode/settings.json" "$vscode_user_dir/settings.json"
+  link "$DOTFILES_DIR/vscode/keybindings.json" "$vscode_user_dir/keybindings.json"
 
   link "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 }
