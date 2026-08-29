@@ -7,7 +7,7 @@
    This one gets your Mac ready in one run.
 ```
 
-One script to take a brand-new Mac from zero to a working full-stack dev setup: shell, editor config, Git identities, Neovim, and Claude Code — all tracked here so the next machine takes minutes, not a weekend.
+One script to take a brand-new Mac from zero to a working full-stack dev setup: shell, editor config, Git identities, Neovim, Claude Code, and Codex CLI — all tracked here so the next machine takes minutes, not a weekend.
 
 ## Quickstart
 
@@ -43,6 +43,7 @@ Steps: `clt` (Xcode Command Line Tools — mandatory for `brew`/`git` to work at
 | Runtimes | [mise](https://mise.jdx.dev) — per-project Node/Python/etc. version switching |
 | Git | Directory-based identity split: `~/code/side-projects`, `~/code/freelance`, `~/code/{company}` (e.g. `geoactio`) |
 | Claude Code | Hooks + statusline, see below |
+| Codex CLI | Portable TUI statusline configuration, see below |
 
 ## Pokédex (Brewfile contents)
 
@@ -82,6 +83,10 @@ Each gets its own `includeIf "gitdir:"` block in `git/.gitconfig`, so no manual 
 `claude/settings.json` wires up:
 - **`hooks/block-coauthor.sh`** — a `PreToolUse` hook on `Bash` that blocks any commit containing `Co-Authored-By`
 - **`statusline-command.sh`** — model, context usage, git branch, session time, and rate-limit status in the status line
+
+## Codex CLI config
+
+`codex/config.toml` configures a portable status line with the model and reasoning level, context usage, current directory, Git branch, and five-hour and weekly usage limits. Project trust entries remain local to each machine.
 
 ## Neovim
 

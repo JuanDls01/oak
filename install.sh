@@ -132,6 +132,7 @@ step_symlinks() {
   link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
   link "$DOTFILES_DIR/claude/hooks/block-coauthor.sh" "$HOME/.claude/hooks/block-coauthor.sh"
   link "$DOTFILES_DIR/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+  link "$DOTFILES_DIR/codex/config.toml" "$HOME/.codex/config.toml"
   chmod +x "$HOME/.claude/hooks/block-coauthor.sh" "$HOME/.claude/statusline-command.sh"
 
   local vscode_user_dir="$HOME/Library/Application Support/Code/User"
