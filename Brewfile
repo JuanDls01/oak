@@ -11,6 +11,7 @@ brew "wget"
 brew "tree"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+brew "starship"
 
 # GUI apps
 cask "google-chrome"
